@@ -16,6 +16,20 @@ public class Navigation {
         return navigateShipTowardsTarget(gameMap, ship, targetPos, maxThrust, avoidObstacles, maxCorrections, angularStepRad);
     }
 
+    public static ThrustMove navigateShipIntoTarget(
+            final GameMap gameMap,
+            final Ship ship,
+            final Entity dockTarget,
+            final int maxThrust)
+    {
+        final int maxCorrections = Constants.MAX_NAVIGATION_CORRECTIONS;
+        final boolean avoidObstacles = true;
+        final double angularStepRad = Math.PI/180.0;
+        final Position targetPos = new Position(dockTarget.getXPos(), dockTarget.getYPos());
+
+        return navigateShipTowardsTarget(gameMap, ship, targetPos, maxThrust, avoidObstacles, maxCorrections, angularStepRad);
+    }
+
     public static ThrustMove navigateShipTowardsTarget(
             final GameMap gameMap,
             final Ship ship,
